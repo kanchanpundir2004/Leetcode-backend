@@ -13,31 +13,7 @@ This backend powers a full coding-platform similar to LeetCode/CodeStudio, inclu
 ✔ Testcase Handling
 ✔ Fully MongoDB-Based Problem Schema
 
-📂 Project Structure
-/backend
-│── /models
-│    ├── problem.js
-│    ├── user.js
-│    ├── submission.js
-│    ├── solutionVideo.js
-│
-│── /controllers
-│    ├── problemController.js
-│    ├── submissionController.js
-│    ├── authController.js
-│
-│── /utils
-│    ├── axios.js
-│    ├── judge0.js
-│    ├── problemUtility.js
-│
-│── /middlewares
-│    ├── authMiddleware.js
-│    ├── adminMiddleware.js
-│
-│── server.js
-│── .env
-│── package.json
+
 
 ⚙️ Tech Stack
 Technology	Usage
