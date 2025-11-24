@@ -1,58 +1,85 @@
-🚀 Codex Backend — Node.js + Express + MongoDB + Judge0
+# 🚀 Codex Backend  
+### **Node.js + Express + MongoDB + Judge0**
 
-This is the backend for Codex, an online coding platform similar to LeetCode / CodeStudio.
-It provides APIs for problem management, code execution, submissions tracking, editorial handling, and authentication.
+A powerful backend for a LeetCode-style coding platform.  
+Codex provides APIs for problem management, code execution, editorial content, authentication, and submission tracking.
 
-✨ Features
-🧩 Problem Management
+---
 
-✔️ Create coding problems (Admin Only)
+## 🌟 Features
 
-✔️ Update/Delete problems
+### 🧩 Problem Management
+- Admin-only problem creation  
+- Update/Delete problems  
+- Fetch problems with:  
+  - **Starter Code**  
+  - **Reference Solution**  
+  - **Constraints**  
+  - **Testcases**  
+- Fully structured MongoDB Schema for problems  
 
-✔️ Fetch problems with starter code & reference solution
+### ⚡ Code Execution (Judge0)
+- Run user code in real-time  
+- Handle multiple languages  
+- Submit solutions  
+- Store submissions per user  
 
-✔️ Testcase management
+### 👤 User System
+- JWT authentication  
+- Password hashing with bcrypt.js  
+- Track solved problems  
+- Maintain submission history  
 
-✔️ MongoDB-driven problem schema
+### 🎥 Editorial System
+- Fetch secure Cloudinary URLs  
+- Add explanations & resources to problems  
 
-⚡ Code Execution (Judge0)
+---
 
-✔️ Run user code via Judge0 API
+## 🛠 Tech Stack
 
-✔️ Submit solutions
+| Technology | Purpose |
+|-----------|---------|
+| **Node.js + Express** | REST API backend |
+| **MongoDB + Mongoose** | Database & ORM |
+| **Judge0 API** | Code execution |
+| **JWT** | Auth & user session |
+| **Cloudinary** | Editorial video hosting |
+| **bcrypt.js** | Password hashing |
 
-✔️ Store user submissions in MongoDB
+---
 
-🎥 Editorial Section
+## 📁 Folder Structure
 
-✔️ Fetch editorial video URLs (Cloudinary Secure Access)
+```
+codex-backend/
+│── controllers/
+│── models/
+│── routes/
+│── middlewares/
+│── utils/
+│── config/
+│── index.js
+│── package.json
+│── .env
+```
 
-👤 User System
+---
 
-✔️ JWT Authentication
+## 🔐 Environment Variables (.env)
 
-✔️ Secure Password Hashing (bcrypt.js)
+Create a `.env` file:
 
-✔️ Track solved problems
-
-🛠 Tech Stack
-Technology	Usage
-Node.js + Express	Backend REST API
-MongoDB + Mongoose	Database & models
-Judge0 API	Code execution engine
-JWT Auth	User authentication
-Cloudinary	Editorial video hosting
-bcrypt.js	Password hashing
-🔐 Environment Variables (.env)
-
-Create a .env file in the root directory:
-
+```env
 PORT=5000
+
+# MongoDB
 MONGO_URI=your_mongodb_connection
+
+# Auth
 JWT_SECRET=your_secret_key
 
-# Judge0 API
+# Judge0
 JUDGE0_API_URL=https://judge0-ce.p.rapidapi.com
 JUDGE0_API_KEY=your_rapidapi_key
 
@@ -60,17 +87,63 @@ JUDGE0_API_KEY=your_rapidapi_key
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
+```
 
-▶️ Run the Server
+---
+
+## ▶️ Installation & Setup
+
+### 1️⃣ Clone the Repo
+```bash
+git clone https://github.com/yourusername/codex-backend.git
+cd codex-backend
+```
+
+### 2️⃣ Install Dependencies
+```bash
 npm install
+```
+
+### 3️⃣ Start the Server
+```bash
 npm start
+```
 
+Server runs at:
 
-Server will start at:
-
+```
 http://localhost:5000
-CLOUDINARY_CLOUD_NAME=xxxx
-CLOUDINARY_API_KEY=xxxx
-CLOUDINARY_API_SECRET=xxxx
+```
 
+---
 
+## 📡 API Endpoints (Summary)
+
+### 🔐 Auth
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+
+### 🧩 Problems
+- `POST /api/problems` (Admin)
+- `GET /api/problems`
+- `GET /api/problems/:id`
+- `PUT /api/problems/:id` (Admin)
+- `DELETE /api/problems/:id` (Admin)
+
+### ⚡ Execution
+- `POST /api/execute`
+- `POST /api/submit`
+
+### 🎥 Editorial
+- `GET /api/editorial/:problemId`
+
+---
+
+## 🚀 Future Enhancements
+- Contest module  
+- Leaderboard  
+- User discussions  
+- Custom testcases UI  
+- Execution time & memory stats  
+
+---
